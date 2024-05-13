@@ -52,7 +52,91 @@ function rentalCarCost(d) {
 // end task 4
 
 // task 5 http://www.codewars.com/kata/calculating-with-functions
+function zero(operation) {
+    if(!operation){
+        return 0
+    }
+    return operation(0);
+}
+function one(operation) {
+    if(!operation){
+        return 1
+    }
+    return operation(1);
+}
+function two(operation) {
+    if(!operation){
+        return 2
+    }
+    return operation(2);
+}
+function three(operation) {
+    if(!operation){
+        return 3
+    }
+    return operation(3);
+}
+function four(operation) {
+    if(!operation){
+        return 4
+    }
+    return operation(4);
+}
+function five(operation) {
+    if(!operation){
+        return 5
+    }
+    return operation(5);
+}
+function six(operation) {
+    if(!operation){
+        return 6
+    }
+    return operation(6);
+}
+function seven(operation) {
+    if(!operation){
+        return 7
+    }
+    return operation(7);
+}
+function eight(operation) {
+    if(!operation){
+        return 8
+    }
+    return operation(8);
+}
+function nine(operation) {
+    if(!operation){
+        return 9
+    }
+    return operation(9);
+}
 
+function plus(a){
+
+
+    return function(b){
+        return  a + b
+    }
+}
+function minus(a) {
+    return function(b){
+        return b - a
+    }
+}
+function times(a ) {
+
+    return function(b){
+        return a * b;
+    }
+}
+function dividedBy(a) {
+
+    return function(b){
+        return   Math.floor(b / a)
+    }
+}
 // end task 5
 
 // task 6 https://www.codewars.com/kata/get-the-middle-character
@@ -70,9 +154,21 @@ function getMiddle(s)
 }
 // end task 6
 
-
 // task 7 http://www.codewars.com/kata/partition-on
+function partitionOn(pred, items) {
 
+    let trueArr =[];
+    let falseArr =[];
+    for(let i = 0; i < items.length;i++){
+        if(pred(items[i])) trueArr.push(items[i]);
+        else falseArr.push(items[i])
+    }
+    items.length = 0;
+    items.push(...falseArr, ...trueArr);
+
+    return falseArr.length
+
+}
 
 //end task 7
 
@@ -80,9 +176,50 @@ function getMiddle(s)
 //end task 8
 
 //task 9 https://www.codewars.com/kata/find-the-odd-int/
+function findOdd(arr) {
+
+    if (arr.length == 1) return arr[0]
+
+    let repetedArray ={};
+    let result;
+
+    for(let i=0;i<arr.length;i++){
+        if(repetedArray[arr[i]]) repetedArray[arr[i]] ++;
+        else repetedArray[arr[i]] = 1;
+    };
+
+    Object.keys(repetedArray).find((item)=>{
+        if(repetedArray[item] % 2 == 1 ) return result = Number(item);
+
+    })
+
+    return result
+
+}
 //end task 9
 
 // task 10 https://www.codewars.com/kata/find-the-parity-outlier
+function findOutlier(integers){
+    let repetedElement={};
+    integers.forEach(item=>{
+        if(repetedElement[Math.abs(item%2)]){
+            repetedElement[Math.abs(item%2)]++
+        }else{
+            repetedElement[Math.abs(item%2)] = 1
+        }
+    })
+
+    let whichElement  = Number(Object.keys(repetedElement).filter((item)=>{
+        if( repetedElement[item] === 1){
+            return item
+        }
+
+    }))
+
+    return integers.find((item)=> Math.abs(item%2) == whichElement )
+
+}
+// end task 10
 
 // task 11 https://www.codewars.com/kata/zipwith
 function zipWith(fn,a0,a1) {
@@ -122,8 +259,46 @@ function nthFibo(n) {
 // end task 13
 
 // task 14 https://www.codewars.com/kata/cat-and-mouse-2d-version/
+function catMouse(map,moves){
+
+    const mapSplit = map.split("\n");
+    let cat;
+    let mouse;
+
+    if( map.indexOf("C") === -1 || map.indexOf("m") === -1 ) return "boring without two animals";
+
+    for (let i =0; i<mapSplit.length;i++ ){
+
+        if(mapSplit[i].indexOf("m") !== -1 ) mouse = {row: i, position:mapSplit[i].indexOf("m")}
+        if(mapSplit[i].indexOf("C") !== -1 ) cat = {row: i, position:mapSplit[i].indexOf("C")}
+
+    }
+
+    if (Math.abs(cat.row - mouse.row) +Math.abs(cat.position - mouse.position) <=moves) return "Caught!"
+    else return "Escaped!"
+
+}
+// end task 14
+
+
 // task 15 https://www.codewars.com/kata/duplicate-encoder
+function duplicateEncode(word){
+    let smallWord = word.toLowerCase();
+    let result ='';
+
+
+    for(let i =0; i<smallWord.length;i++){
+        if(smallWord.indexOf(smallWord[i]) === smallWord.lastIndexOf(smallWord[i]) ) result +='(';
+        else result +=')';
+    }
+
+    return result;
+}
+// end task 15
+
 // task 16 https://www.codewars.com/kata/5693239fb761dc8670000001
+// end task 16
+
 // task 17  https://www.codewars.com/kata/576757b1df89ecf5bd00073b
 function towerBuilder(nFloors) {
     // build here
@@ -138,6 +313,7 @@ function towerBuilder(nFloors) {
     }
     return result
 }
+// end task 17
 
 // task 18 https://www.codewars.com/kata/58f5c63f1e26ecda7e000029
 function wave(str){
@@ -166,6 +342,7 @@ function stringBreakers(n, string){
     return result.join('\n')
 }
 // end task 19
+
 // task 20 https://www.codewars.com/kata/514a024011ea4fb54200004b
 function domainName(url){
     //your code here
