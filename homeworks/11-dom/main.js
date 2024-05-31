@@ -14,8 +14,15 @@ for(let row =1; row<=30; row++ ){
 gridTable.addEventListener('click', (event) => {
 
     const {row,col} =event.target.dataset
+    if(!event.shiftKey) {
+        document.querySelectorAll('.cell').forEach(cell => {
+            cell.innerText=''
+            cell.classList.remove('selected');
+        });
+    }
+
+    event.target.innerText=`${col}/${row}`;
     event.target.classList.add('selected')
-    event.target.innerText=`${col}/${row}`
 
     document.querySelectorAll('.cell').forEach(cell => {
         cell.classList.remove( 'active-row', 'active-column');

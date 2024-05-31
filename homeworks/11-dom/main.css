@@ -3,6 +3,7 @@
     grid-template-columns: repeat(20,40px);
     grid-template-rows: repeat(30, 40px);
     gap: 1px;
+    max-width: max-content;
 }
 .cell {
     width: 40px;
@@ -10,7 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    outline: 1px solid black;
 }
 
 .cell:hover{
