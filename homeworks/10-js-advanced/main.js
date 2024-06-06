@@ -10,10 +10,8 @@ function validateMessage(msg) {
         throw new RangeError(`Message contains ${msg.length} characters!`)
     }
     if((/<[^>]+>/).test(msg)){
-
         return false
     }
-
     return true;
 
 }
