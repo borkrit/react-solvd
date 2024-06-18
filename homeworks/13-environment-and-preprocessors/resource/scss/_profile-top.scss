@@ -1,0 +1,84 @@
+
+
+.profile-top{
+  &__wrapper {
+    max-width: max-content;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-inline: auto;
+  }
+  &__avatar {
+    width: 215px;
+    height: 215px;
+    border-radius: 50%;
+    border: 4px solid #F7D039;
+    overflow: hidden;
+
+    img {
+      border: 7px solid var(--border-color);
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  &__title {
+    font-size: 46px;
+    font-weight: inherit;
+    color: var(--heading-color-text);
+    margin-bottom: 3px;
+    line-height: 1.5;
+  }
+  &__position {
+    font-size: 22px;
+    color: var(--heading-color-text);
+    margin-bottom: 12px;
+  }
+  &__social-lists {
+    display: flex;
+    gap: 26px;
+  }
+  &__social-item {
+    line-height: 0;
+  }
+  &__social-link {
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+
+    img {
+      filter: contrast(var(--filter-img));
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    &__wrapper {
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__avatar {
+      width: 124px;
+      height: 124px;
+      border: 4px solid var(--border-color);
+      outline: 4px solid #F7D039;
+
+      img {
+        border-width: 4px;
+      }
+    }
+
+    &__information {
+      text-align: center;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__social-lists {
+      justify-content: center;
+    }
+  }
+}
+

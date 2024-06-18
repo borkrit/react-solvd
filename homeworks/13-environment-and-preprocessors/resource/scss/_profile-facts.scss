@@ -1,0 +1,48 @@
+.profile-facts {
+  margin-block: 48px;
+
+  &__wrapper {
+    max-width: 650px;
+    margin-inline: auto;
+  }
+  &__list {
+    display: flex;
+    padding: 20px 31px;
+    gap: 90px;
+  }
+  &__item {
+    text-align: center;
+  }
+  &__number {
+    font-size: 24px;
+    color: var(--heading-color-text);
+  }
+  &__title {
+    font-size: 22px;
+    color: var(--text-color);
+  }
+
+  @media screen and (max-width: 600px) {
+    margin-block: 30px;
+
+    &__list {
+      padding: 20px 15px;
+      gap: 27px;
+    }
+    &__number {
+      font-size: 16px;
+    }
+&__title {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+  }
+
+  @media screen and (max-width: 327px) {
+    &__title {
+      font-size: 11px;
+    }
+  }
+}
+
