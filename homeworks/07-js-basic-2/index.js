@@ -2,11 +2,8 @@
 function positiveSum(arr) {
     let initValue = 0
     let result = arr.reduce((acc,curr)=>{
-            if(curr>0){
-                return acc + curr
-            }else{
-                return acc
-            }
+            if(curr>0) return acc + curr
+            else return acc
         }
         ,initValue)
     return result
@@ -37,11 +34,9 @@ function maxMultiple(divisor, bound){
     let result;
     while(bound >=0 ){
         let calculated = bound/divisor
-        if( Number.isInteger(calculated) && calculated > 0 ){
-            return res = bound
-        }else{
-            bound --
-        }
+        if( Number.isInteger(calculated) && calculated > 0 ) return res = bound
+        else bound--
+
 
     }
 }
@@ -49,7 +44,7 @@ function maxMultiple(divisor, bound){
 
 // task 4 https://www.codewars.com/kata/514a6336889283a3d2000001
 function getEvenNumbers(numbersArray){
-    return numbersArray.filter(number=> number%2 === 0   )
+    return numbersArray.filter(number=> number%2 === 0)
 
 }
 //end task 4
@@ -61,12 +56,10 @@ function solve(arr){
     arr.sort((a,b)=>a-b);
 
     while(arr.length){
-        if(arr.length){
-            result.push(arr.pop())
-        }
-        if(arr.length){
-            result.push(arr.shift())
-        }
+        if(arr.length) result.push(arr.pop())
+
+        if(arr.length) result.push(arr.shift())
+
     }
 
     return result
@@ -105,11 +98,8 @@ function findUniq(arr) {
     let objectWithDublicateItem ={};
 
     for(let i =0 ; i< arr.length;i++){
-        if(objectWithDublicateItem[arr[i]]){
-            objectWithDublicateItem[arr[i]] ++
-        }else{
-            objectWithDublicateItem[arr[i]] = 1
-        }
+        if(objectWithDublicateItem[arr[i]]) objectWithDublicateItem[arr[i]] ++
+        else objectWithDublicateItem[arr[i]] = 1
     }
     let result =  Object.keys(objectWithDublicateItem).find((item)=>{
         if(objectWithDublicateItem[item] === 1  ) return item
